@@ -1,11 +1,13 @@
 package ca.fxco.experimentalperformance.memoryDensity;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class VersionedInfoHolderData {
 
     private final String targetClassName;
-    private final final String modId;
+    private final List<String> redirectFields;
+    private final String modId;
     private final boolean defaultValue;
 
     private final InfoHolderPart[] holderVersions;
