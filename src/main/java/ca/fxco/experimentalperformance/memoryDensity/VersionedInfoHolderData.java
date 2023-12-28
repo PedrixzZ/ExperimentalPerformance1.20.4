@@ -7,7 +7,6 @@ import java.util.List;
 public class VersionedInfoHolderData {
 
     private final String targetClassName;
-    private final final String modId;
     private final boolean defaultValue;
 
     private final String[] redirectFields;
