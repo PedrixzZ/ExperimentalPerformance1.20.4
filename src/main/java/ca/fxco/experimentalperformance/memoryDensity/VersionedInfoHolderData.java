@@ -1,15 +1,14 @@
 package ca.fxco.experimentalperformance.memoryDensity;
 
-import java.util.List;
+import java.util.Arrays;
 
 public class VersionedInfoHolderData {
 
     private final String targetClassName;
-    private final List<String> redirectFields;
-    private final String modId;
+    private final final String modId;
     private final boolean defaultValue;
 
-    private final List<InfoHolderPart> holderVersions;
+    private final InfoHolderPart[] holderVersions;
 
     public VersionedInfoHolderData(String targetClassName, List<String> redirectFields,
                                    List<InfoHolderPart> holderVersions) {
@@ -24,8 +23,8 @@ public class VersionedInfoHolderData {
     public VersionedInfoHolderData(String targetClassName, List<String> redirectFields,
                                    List<InfoHolderPart> holderVersions, String modId, boolean defaultValue) {
         this.targetClassName = targetClassName;
-        this.holderVersions = holderVersions;
-        this.redirectFields = redirectFields;
+        this.holderVersions = holderVersions.toArray(new InfoHolderPart[holderVersions.size()]);
+        this.redirectFields = redirectFields.toArray(new String[redirectFields.size()]);
         this.modId = modId;
         this.defaultValue = defaultValue;
     }
@@ -39,14 +38,14 @@ public class VersionedInfoHolderData {
     }
 
     public List<String> getRedirectFields() {
-        return this.redirectFields;
+        return Arrays.asList(this.redirectFields);
     }
 
     public String getModId() {
         return this.modId;
     }
 
-    public List<InfoHolderPart> getVersionedInfoHolderParts() {
+    public InfoHolderPart[] getVersionedInfoHolderParts() {
         return this.holderVersions;
     }
 
