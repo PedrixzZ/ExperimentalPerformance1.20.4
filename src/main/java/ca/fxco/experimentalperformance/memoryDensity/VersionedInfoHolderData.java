@@ -1,16 +1,16 @@
 package ca.fxco.experimentalperformance.memoryDensity;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class VersionedInfoHolderData {
 
     private final String targetClassName;
-    private final List<String> redirectFields;
-    private final String modId;
+    private final final String modId;
     private final boolean defaultValue;
 
-    private final InfoHolderPart[] holderVersions;
+    private final String[] redirectFields;
 
     public VersionedInfoHolderData(String targetClassName, List<String> redirectFields,
                                    List<InfoHolderPart> holderVersions) {
@@ -25,8 +25,7 @@ public class VersionedInfoHolderData {
     public VersionedInfoHolderData(String targetClassName, List<String> redirectFields,
                                    List<InfoHolderPart> holderVersions, String modId, boolean defaultValue) {
         this.targetClassName = targetClassName;
-        this.holderVersions = holderVersions.toArray(new InfoHolderPart[holderVersions.size()]);
-        this.redirectFields = redirectFields.toArray(new String[redirectFields.size()]);
+        this.redirectFields = redirectFields.toArray(new String[]{}); // Use empty array for type inference
         this.modId = modId;
         this.defaultValue = defaultValue;
     }
@@ -40,7 +39,7 @@ public class VersionedInfoHolderData {
     }
 
     public List<String> getRedirectFields() {
-        return Arrays.asList(this.redirectFields);
+        return Collections.unmodifiableList(Arrays.asList(this.redirectFields));
     }
 
     public String getModId() {
@@ -48,7 +47,7 @@ public class VersionedInfoHolderData {
     }
 
     public InfoHolderPart[] getVersionedInfoHolderParts() {
-        return this.holderVersions;
+        return holderVersions.toArray(new InfoHolderPart[]{});
     }
 
     public static InfoHolderPart part(List<String> extraRedirectFields, String versionPredicate) {
