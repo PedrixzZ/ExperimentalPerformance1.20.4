@@ -7,6 +7,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.fabricmc.loader.api.Version;
 import net.fabricmc.loader.api.metadata.version.VersionPredicate;
+import net.fabricmc.loader.api.metadata.version.VersionParsingException; // Import VersionParsingException
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -64,4 +65,4 @@ public class HolderUtils {
                 holderData.getModId()
         );
     }
-                    }
+}
