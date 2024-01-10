@@ -1,6 +1,8 @@
 package ca.fxco.experimentalperformance.utils;
 
 import org.objectweb.asm.Type;
+import java.util.Map;
+import java.util.HashMap;
 
 public class GeneralUtils {
 
