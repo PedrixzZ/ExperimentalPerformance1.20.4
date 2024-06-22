@@ -1,5 +1,3 @@
-package ca.fxco.experimentalperformance.memoryDensity.infoHolders;
-
 import org.objectweb.asm.*;
 import org.objectweb.asm.commons.GeneratorAdapter;
 import org.objectweb.asm.commons.Method;
@@ -9,7 +7,6 @@ import org.objectweb.asm.tree.FieldNode;
 import java.lang.invoke.MethodHandles;
 import java.util.List;
 
-import static ca.fxco.experimentalperformance.utils.CommonConst.INIT;
 import static ca.fxco.experimentalperformance.utils.CommonConst.OBJECT_PATH;
 
 public class InfoHolderGenerator {
